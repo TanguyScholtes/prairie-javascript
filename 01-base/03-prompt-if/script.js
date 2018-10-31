@@ -12,5 +12,12 @@
 (function() {
 
   // your code here
+  var cake = prompt( "Voulez-vous du gâteau ?" );
+
+  if( cake === "Oui" || cake === "oui" || cake === "yes" || cake === "y" ) {
+      alert( "Congratulations, you passed the test. For science. You monster." );
+  } else {
+      alert( "Du gâteau, ça ne se refuse pas !" );
+  }
 
 })();
