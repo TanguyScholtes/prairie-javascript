@@ -12,5 +12,8 @@
 (function() {
 
     // your code here
-
+    var name = prompt( "Quel est votre nom ?" );
+    if( name ) {
+        alert( "Bonjour " + name );
+    }
 })();
