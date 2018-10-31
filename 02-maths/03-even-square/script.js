@@ -13,8 +13,15 @@
 
     document.getElementById("run").addEventListener("click", function() {
 
-        // your code here
+        var result = "";
 
+        for ( var i = 1; i <= 21; i++ ) {
+            if( i % 2 == 0 ) {
+                result += i * i + " ";
+            }
+        }
+
+        return alert( result );
     });
 
 })();

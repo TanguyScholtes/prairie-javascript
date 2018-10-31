@@ -11,9 +11,22 @@
 
 (function() {
     // to get the value of an input: document.getElememntById("element-id").value
+    var opOne = Number( document.getElementById( "op-one" ).value );
+    var opTwo = Number( document.getElementById( "op-two" ).value );
 
     var performOperation = function(operation) {
         // perform the operation
+        switch ( operation ) {
+            case 'addition': return alert( opOne + opTwo );
+                break;
+            case 'substraction': return alert( opOne - opTwo );
+                break;
+            case 'multiplication': return alert( opOne * opTwo );
+                break;
+            case 'division': return alert( opOne / opTwo );
+                break;
+            default: return 0;
+        }
     };
 
     Array.from(document.querySelectorAll("button.operator")).forEach(function($btn) {

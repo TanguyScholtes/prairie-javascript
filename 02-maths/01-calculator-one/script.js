@@ -11,20 +11,34 @@
 
 (function() {
     // to get the value of an input: document.getElememntById("element-id").value
+    var opOne = Number( document.getElementById( "op-one" ).value );
+    var opTwo = Number( document.getElementById( "op-two" ).value );
+
+    function isNumber ( number ) {
+        return !isNaN( +number ) && isFinite( number );
+    }
+
+    if ( !isNumber( opOne ) || !isNumber( opTwo )  ) {
+        alert( "Please enter valid numbers" );
+    }
 
     document.getElementById("addition").addEventListener("click", function() {
         // perform an addition
+        return alert( opOne + opTwo );
     });
 
     document.getElementById("substraction").addEventListener("click", function() {
         // perform an substraction
+        return alert( opOne - opTwo );
     });
 
     document.getElementById("multiplication").addEventListener("click", function() {
         // perform an multiplication
+        return alert( opOne * opTwo );
     });
 
     document.getElementById("division").addEventListener("click", function() {
         // perform an division
+        return alert( opOne / opTwo );
     });
 })();
