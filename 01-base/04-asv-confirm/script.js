@@ -11,6 +11,17 @@
 
 (function() {
 
-    // your code here
+    function ask () {
+        var age = prompt( "Quel est votre âge ?" );
+        var sex = prompt( "Quel est votre sexe ?" );
+        var city = prompt( "Dans quelle ville vivez-vous ?" );
+
+        if ( !confirm( "Est-ce correct ? Âge : " + age + ", Sexe : " + sex + ", Ville : " + city ) ) {
+            ask();
+            return 0;
+        }
+    }
+
+    ask();
 
 })();
