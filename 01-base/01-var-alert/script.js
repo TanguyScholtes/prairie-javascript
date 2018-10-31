@@ -12,5 +12,8 @@
 (function() {
 
     // your code here
+    var greetings = "Hello World!";
+
+    alert( greetings );
 
 })();
