@@ -10,9 +10,15 @@
 // You will have time to focus on it later.
 
 (function() {
-
     // to change the content of a tag: document.getElementById("element-id").innerHTML = "new-value"
-
     // your code here
+    var target = document.getElementById( "target" );
+    var hour = new Date().getHours();
+
+    if ( hour >= 18 ) {
+        target.innerHTML = "Bonsoir !";
+    } else {
+        target.innerHTML = "Bonjour !";
+    }
 
 })();
