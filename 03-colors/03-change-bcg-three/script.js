@@ -10,7 +10,23 @@
 // You will have time to focus on it later.
 
 (function() {
-
     // your code here
 
+    function randomNumberGenerator ( min, max ) {
+        return Math.random() * ( max - min ) + min;
+    }
+
+    function changeBackground ( r, g, b ) {
+        document.documentElement.style.background = "rgb(" + r + "," + g + "," + b + ")";
+    }
+
+    function randomColorGenerator () {
+        var red = randomNumberGenerator( 1, 256 );
+        var green = randomNumberGenerator( 1, 256 );
+        var blue = randomNumberGenerator( 1, 256 );
+
+        changeBackground( red, green, blue );
+    }
+
+    document.getElementById( "run" ).addEventListener( "click", randomColorGenerator, false );
 })();

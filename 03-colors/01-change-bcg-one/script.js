@@ -10,7 +10,25 @@
 // You will have time to focus on it later.
 
 (function() {
-
     // your code here
+    function backgroundRed () {
+        document.documentElement.style.background = "rgb(175, 35, 35)";
+    }
 
+    function backgroundGreen () {
+        document.documentElement.style.background = "rgb(35, 175, 35)";
+    }
+
+    function backgroundYellow () {
+        document.documentElement.style.background = "rgb(175, 175, 35)";
+    }
+
+    function backgroundBlue () {
+        document.documentElement.style.background = "rgb(35, 35, 175)";
+    }
+
+    document.getElementById( "red" ).addEventListener( "click", backgroundRed, false );
+    document.getElementById( "green" ).addEventListener( "click", backgroundGreen, false );
+    document.getElementById( "yellow" ).addEventListener( "click", backgroundYellow, false );
+    document.getElementById( "blue" ).addEventListener( "click", backgroundBlue, false );
 })();
