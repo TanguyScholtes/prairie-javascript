@@ -12,13 +12,17 @@
 (function() {
 
     // to get the value of an input: document.getElememntById("element-id").value
-    var numbers = Number( document.getElementById( "numbers" ).value );
+    var numbers = [];
+    var values = document.getElementById( "numbers" ).value.split(', ');
 
-    document.getElementById("run").addEventListener("click", function() {
+    for ( var i = 0; i < values.length; i++ ) {
+        numbers[ i ] = parseInt( values[ i ], 10 );
+    }
 
+    document.getElementById( "run" ).addEventListener( "click", function() {
         return alert( numbers.sort( function( a, b ) {
             return a - b;
         } ) );
-    });
+    } );
 
 })();
