@@ -30,12 +30,12 @@
             var colors = string.match( regex );
             document.documentElement.style.background = "rgb(" + colors[ 1 ] + "," + colors[ 2 ] + "," + colors[ 3 ] + ")";
         } else if ( string.indexOf( "(" ) == 0 ) {
-            //color string starts with (, so rgb must be added
+            //color string starts with (
             var regex = /\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/;
             var colors = string.match( regex );
             document.documentElement.style.background = "rgb(" + colors[ 1 ] + "," + colors[ 2 ] + "," + colors[ 3 ] + ")";
         } else {
-            //color string is just rgb values separated with comas
+            //color string is just rgb or rgba values separated with comas
             var regex = /(\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?)))?/;
             var colors = string.match( regex );
             document.documentElement.style.background = "rgb(" + colors[ 1 ] + "," + colors[ 2 ] + "," + colors[ 3 ] + ")";
@@ -44,10 +44,11 @@
 
     function changeBackgroundHexa ( string ) {
         if ( string.indexOf( "#" ) == 0 ) {
-            //hexa color comes with it's hashtag
+            //hexa color comes with its hashtag
             document.documentElement.style.background = string.substring( 0, 7 );
         } else {
-            document.documentElement.style.background = "#" + string.substring( 0, 7 );
+            //hexa color womes without hashtag, so we have to add it
+            document.documentElement.style.background = "#" + string.substring( 0, 6 );
         }
     }
 
