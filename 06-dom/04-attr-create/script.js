@@ -10,7 +10,11 @@
 // You will have time to focus on it later.
 
 (function() {
-
     // your code here
+    var source = document.getElementById( "source" );
+    var target = document.getElementById( "target" );
+
+    target.innerHTML = "<img src=\"" + source.getAttribute( "data-image" ) + "\" >";
+    source.remove();
 
 })();

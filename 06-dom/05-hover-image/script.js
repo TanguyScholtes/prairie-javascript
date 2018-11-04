@@ -10,7 +10,20 @@
 // You will have time to focus on it later.
 
 (function() {
-
     // your code here
 
+    var image = document.querySelector( ".material figure img" );
+    var originalSource = image.getAttribute( "src" );
+    var altSource = image.getAttribute( "data-hover" );
+
+    function imageHover () {
+        image.setAttribute( "src", altSource );
+    }
+
+    function imageOrigin () {
+        image.setAttribute( "src", originalSource );
+    }
+
+    image.addEventListener( "mouseenter", imageHover , false );
+    image.addEventListener( "mouseleave", imageOrigin , false );
 })();

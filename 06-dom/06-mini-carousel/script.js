@@ -20,5 +20,24 @@
     ];
 
     // your code here
+    var image = document.querySelector( ".material figure img" );
 
+    function nextImage ( array ) {
+        var currentImage = image.getAttribute( "src" );
+        var currentIndex = array.findIndex( function ( source ) {
+            return source == currentImage;
+        } );
+
+        if ( currentIndex < array.length - 1 ) {
+            var nextIndex = currentIndex + 1;
+        } else {
+            var nextIndex = 0;
+        }
+
+        image.setAttribute( "src", gallery[ nextIndex ] );
+    }
+
+    document.getElementById( "next" ).addEventListener( "click", function () {
+        nextImage( gallery );
+    }, false );
 })();
