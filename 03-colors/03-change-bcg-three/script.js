@@ -13,7 +13,7 @@
     // your code here
 
     function randomNumberGenerator ( min, max ) {
-        return Math.random() * ( max - min ) + min;
+        return Math.floor( Math.random() * ( max - min ) ) + min;
     }
 
     function changeBackground ( r, g, b ) {
