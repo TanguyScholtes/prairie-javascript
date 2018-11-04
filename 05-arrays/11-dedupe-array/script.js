@@ -29,5 +29,22 @@
     ];
 
     // your code here
+    function removeDoubles ( array ) {
+        var uniques = new Set();
+        for ( var i = 0; i < array.length; i++ ) {
+            if ( !uniques.has( array[ i ] ) ) {
+                uniques.add( array[ i ] );
+            }
+        }
 
+        console.log( "Tableau après traitement :" );
+        console.log( uniques );
+    }
+
+    console.log( "Tableau avant traitement :" );
+    console.log( fruits );
+
+    document.getElementById( "run" ).addEventListener( "click", function () {
+        removeDoubles( fruits );
+    }, false );
 })();
