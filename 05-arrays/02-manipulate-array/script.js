@@ -23,7 +23,15 @@
         "raisin",
         "cerise",
     ];
-
     // your code here
+    function transformArray () {
+        var array = fruits;
+        //replaces first element of array with "banane"
+        array.splice( 0, 1, "banane" );
+        //replaces last element of array with "kiwi"
+        array.splice( array.length - 1, 1, "kiwi" );
+        console.log( array );
+    }
 
+    document.getElementById( "run" ).addEventListener( "click", transformArray, false );
 })();

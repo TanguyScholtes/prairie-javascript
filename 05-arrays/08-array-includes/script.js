@@ -25,7 +25,16 @@
         "raisin",
         "cerise",
     ];
-
     // your code here
+    function hasWord ( array, word ) {
+        if ( array.find( function ( item ) { return item == word } ) ) {
+            console.log( word + " fait partie du tableau." );
+        } else {
+            console.log( word + " ne fait pas partie du tableau." );
+        }
+    }
 
+    document.getElementById( "run" ).addEventListener( "click", function () {
+        hasWord( fruits, "pomme" );
+    }, false );
 })();

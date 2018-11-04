@@ -27,5 +27,10 @@
     ];
 
     // your code here
+    function displayFruit () {
+        var number = 4;
+        alert( fruits[ number - 1 ] );
+    }
 
+    document.getElementById( "run" ).addEventListener( "click", displayFruit, false );
 })();

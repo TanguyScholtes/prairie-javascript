@@ -25,7 +25,14 @@
         "raisin",
         "cerise",
     ];
-
     // your code here
+    function walkArray ( array ) {
+        for ( var i = 0; i < array.length; i++ ) {
+            console.log( array[ i ] );
+        }
+    }
 
+    document.getElementById( "run" ).addEventListener( "click", function () {
+        walkArray( fruits );
+    }, false );
 })();

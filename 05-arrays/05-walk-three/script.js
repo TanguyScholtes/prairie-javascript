@@ -40,5 +40,15 @@
     ];
 
     // your code here
+    function getNames ( array ) {
+        var names = array.map( function ( item ) {
+            var fullname = item.firstname + " " + item.lastname;
+            console.log( fullname );
+            return fullname;
+        } );
+    }
 
+    document.getElementById( "run" ).addEventListener( "click", function () {
+        getNames( people );
+    }, false );
 })();

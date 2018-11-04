@@ -90,5 +90,16 @@
     ];
 
     // your code here
+    function getEmail ( people, lastname, firstname ) {
+        console.log( people.find( function ( person ) {
+            return person.lastname == lastname && person.firstname == firstname;
+        } ).email );
+        console.log( people.findIndex( function ( person ) {
+            return person.lastname == lastname && person.firstname == firstname;
+        } ) );
+    }
 
+    document.getElementById( "run" ).addEventListener( "click", function () {
+        getEmail( people, "Dupont", "Jean" );
+    }, false );
 })();

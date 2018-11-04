@@ -88,7 +88,15 @@
             age: 81,
         },
     ];
-
     // your code here
+    function getPeopleAboveAge ( people, age ) {
+        var adults = people.filter( function ( person ) {
+            return person.age > 18;
+        } );
+        console.log( adults );
+    }
 
+    document.getElementById( "run" ).addEventListener( "click", function () {
+        getPeopleAboveAge( people, 18 );
+    }, false );
 })();
