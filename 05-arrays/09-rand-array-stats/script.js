@@ -20,7 +20,6 @@
         for ( var i = 0; i < length; i++ ) {
             array[ i ] = randomNumberGenerator( 1, 100 );
         }
-        console.log( array );
         displayArray( array );
         getArrayStats( array );
     }
@@ -37,8 +36,6 @@
             return a - b;
         } );
         var sum = 0;
-
-        console.log( sortedArray );
 
         document.getElementById( "min" ).innerHTML = sortedArray[ 0 ];
         document.getElementById( "max" ).innerHTML = sortedArray[ sortedArray.length - 1 ];
