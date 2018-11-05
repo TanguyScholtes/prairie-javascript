@@ -10,7 +10,25 @@
 // You will have time to focus on it later.
 
 (function() {
-
     // your code here
+    function rng ( min, max ) {
+        return Math.floor( Math.random() * ( max - min ) ) + min;
+    }
 
+    function constructTable ( rows, columns ) {
+        var table = "<table><thead></thead><tbody>";
+        
+        for ( var i = 0; i < rows; i++ ) {
+            table += "<tr>"
+            for ( var j = 0; j < columns; j++ ) {
+                table += "<td>" + rng( 1, 10 ) + "</td>";
+            }
+            table += "</tr>";
+        }
+        table += "</tbody></table>";
+
+        return table;
+    }
+
+    document.getElementById( 'target' ).innerHTML = constructTable( 10, 1 );
 })();

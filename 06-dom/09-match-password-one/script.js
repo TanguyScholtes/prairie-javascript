@@ -10,7 +10,25 @@
 // You will have time to focus on it later.
 
 (function() {
-
     // your code here
+    var first = document.getElementById( "pass-one" );
+    var second = document.getElementById( "pass-two" );
 
+    function compareInputs ( one, two ) {
+        if ( one.value !== two.value ) {
+            colorElement( one, "red" );
+            colorElement( two, "red" );
+        }
+    }
+
+    function colorElement ( element, color ) {
+        element.style.border = "1px solid " + color;
+    }
+
+    document.getElementById( "run" ).addEventListener( "click", function () {
+        colorElement( first, "lightgray" );
+        colorElement( second, "lightgray" );
+
+        compareInputs( first, second );
+    }, false );
 })();

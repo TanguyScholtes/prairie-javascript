@@ -10,7 +10,16 @@
 // You will have time to focus on it later.
 
 (function() {
-
     // your code here
+    var input = document.getElementById( "pass-one" );
 
+    function updateCounter () {
+        if ( input.value.length >= 10 ) {
+            input.value = input.value.substr( 0, 10 );
+        }
+        document.getElementById( "counter" ).innerHTML = input.value.length + "/10";
+    }
+
+    input.addEventListener( "input", updateCounter, false );
+    input.addEventListener( "change", updateCounter, false );
 })();
