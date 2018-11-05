@@ -30,13 +30,7 @@
 
     // your code here
     function removeDoubles ( array ) {
-        var uniques = new Set();
-        for ( var i = 0; i < array.length; i++ ) {
-            if ( !uniques.has( array[ i ] ) ) {
-                uniques.add( array[ i ] );
-            }
-        }
-
+        var uniques = [ ...new Set( array ) ];
         console.log( "Tableau après traitement :" );
         console.log( uniques );
     }
