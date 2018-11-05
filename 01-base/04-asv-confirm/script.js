@@ -9,19 +9,8 @@
 // NOTE: don't focus on the existing code structure for now.
 // You will have time to focus on it later.
 
-(function() {
-
-    function ask () {
-        var age = prompt( "Quel est votre âge ?" );
-        var sex = prompt( "Quel est votre sexe ?" );
-        var city = prompt( "Dans quelle ville vivez-vous ?" );
-
-        if ( !confirm( "Est-ce correct ? Âge : " + age + ", Sexe : " + sex + ", Ville : " + city ) ) {
-            ask();
-            return 0;
-        }
+( function ask () {
+    if ( !confirm( "Est-ce correct ? Âge : " + prompt( "Quel est votre âge ?" ) + ", Sexe : " + prompt( "Quel est votre sexe ?" ) + ", Ville : " + prompt( "Dans quelle ville vivez-vous ?" ) ) ) {
+        ask();
     }
-
-    ask();
-
-})();
+} ) ();
