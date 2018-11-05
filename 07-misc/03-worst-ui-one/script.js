@@ -10,7 +10,14 @@
 // You will have time to focus on it later.
 
 (function() {
-
     // your code here
+    var slider = document.getElementById( "slider" );
 
+    function phoneNumber () {
+        var value = slider.value;
+        document.getElementById( "target" ).innerHTML = "0" + value;
+    }
+
+    slider.addEventListener( "input", phoneNumber, false );
+    slider.addEventListener( "change", phoneNumber, false );
 })();

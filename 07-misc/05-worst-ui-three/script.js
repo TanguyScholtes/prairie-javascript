@@ -10,7 +10,65 @@
 // You will have time to focus on it later.
 
 (function() {
-
     // your code here
+    var roulettes = [
+        {
+            button: document.getElementById( 'fix-part-one' ),
+            input: document.getElementById( 'part-one' ),
+            value: document.getElementById( 'part-one' ).value,
+            roll: false
+        },
+        {
+            button: document.getElementById( "fix-part-two" ),
+            input: document.getElementById( 'part-two' ),
+            value: document.getElementById( 'part-two' ).value,
+            roll: false
+        },
+        {
+            button: document.getElementById( "fix-part-three" ),
+            input: document.getElementById( 'part-three' ),
+            value: document.getElementById( 'part-three' ).value,
+            roll: false
+        },
+        {
+            button: document.getElementById( "fix-part-four" ),
+            input: document.getElementById( 'part-four' ),
+            value: document.getElementById( 'part-four' ).value,
+            roll: false
+        },
+    ];
 
+    function rouletteRoll ( roulette ) {
+        if ( roulette.value >= roulette.input.getAttribute( "data-max" ) ) {
+            roulette.value = roulette.input.getAttribute( "data-min" );
+        } else {
+            roulette.value++;
+            if( roulette.value > 0 && roulette.value < 10 ) {
+                roulette.value = "0" + roulette.value;
+            }
+        }
+        roulette.input.value = roulette.value;
+        document.getElementById( "target" ).innerHTML = "+" + roulettes[ 0 ].value + roulettes[ 1 ].value + roulettes[ 2 ].value + roulettes[ 3 ].value;
+    }
+
+    function rouletteSwitch ( button ) {
+        var index = roulettes.findIndex( function ( roulette ) {
+            return roulette.button === button;
+        } );
+
+        if ( roulettes[ index ].roll === false ) {
+            roulettes[ index ].roll = setInterval( function () {
+                rouletteRoll( roulettes[ index ] );
+            }, 175 );
+        } else {
+            clearInterval( roulettes[ index ].roll );
+            roulettes[ index ].roll = false;
+        }
+    }
+
+    Array.from( document.querySelectorAll( "button" ) ).forEach( function( $btn ) {
+        $btn.addEventListener( "click", function () {
+            rouletteSwitch( $btn );
+        }, false );
+    } );
 })();
