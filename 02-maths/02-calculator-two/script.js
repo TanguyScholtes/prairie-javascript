@@ -11,11 +11,7 @@
 
 (function() {
     // to get the value of an input: document.getElememntById("element-id").value
-    var opOne = Number( document.getElementById( "op-one" ).value );
-    var opTwo = Number( document.getElementById( "op-two" ).value );
-
-    var performOperation = function(operation) {
-        // perform the operation
+    function performOperation ( operation, opOne, opTwo ) {
         switch ( operation ) {
             case 'addition': return alert( opOne + opTwo );
                 break;
@@ -27,11 +23,30 @@
                 break;
             default: return 0;
         }
-    };
+    }
 
-    Array.from( document.querySelectorAll( "button" ) ).forEach( function( $btn ) {
+    function checkNumbers ( operation ) {
+        var opOne = Number( document.getElementById( "op-one" ).value );
+        var opTwo = Number( document.getElementById( "op-two" ).value );
+
+        if ( isInteger( opOne ) && isInteger( opTwo ) ) {
+            performOperation( operation, opOne, opTwo );
+        } else {
+            alert( "Please enter valid numbers" );
+        }
+    }
+
+    function isInteger ( number ) {
+        if ( number === parseInt( number, 10 ) ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    Array.from( document.querySelectorAll( "button.operator" ) ).forEach( function( $btn ) {
         $btn.addEventListener( "click", function() {
-            performOperation( $btn.id );
+            checkNumbers( $btn.id );
         } );
     } );
 })();
