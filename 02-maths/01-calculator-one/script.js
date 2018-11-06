@@ -28,17 +28,17 @@
     });
 
     document.getElementById("substraction").addEventListener("click", function() {
-        // perform an substraction
+        // perform a substraction
         return alert( opOne - opTwo );
     });
 
     document.getElementById("multiplication").addEventListener("click", function() {
-        // perform an multiplication
+        // perform a multiplication
         return alert( opOne * opTwo );
     });
 
     document.getElementById("division").addEventListener("click", function() {
-        // perform an division
+        // perform a division
         return alert( opOne / opTwo );
     });
 })();
