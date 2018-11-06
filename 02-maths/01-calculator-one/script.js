@@ -11,34 +11,43 @@
 
 (function() {
     // to get the value of an input: document.getElememntById("element-id").value
-    var opOne = Number( document.getElementById( "op-one" ).value );
-    var opTwo = Number( document.getElementById( "op-two" ).value );
 
-    function isNumber ( number ) {
-        return !isNaN( +number ) && isFinite( number );
+    function performOperation ( operation, opOne, opTwo ) {
+        switch ( operation ) {
+            case 'addition': return alert( opOne + opTwo );
+                break;
+            case 'substraction': return alert( opOne - opTwo );
+                break;
+            case 'multiplication': return alert( opOne * opTwo );
+                break;
+            case 'division': return alert( opOne / opTwo );
+                break;
+            default: return 0;
+        }
     }
 
-    if ( !isNumber( opOne ) || !isNumber( opTwo )  ) {
-        alert( "Please enter valid numbers" );
+    function checkNumbers ( operation ) {
+        var opOne = Number( document.getElementById( "op-one" ).value );
+        var opTwo = Number( document.getElementById( "op-two" ).value );
+
+        if ( isInteger( opOne ) && isInteger( opTwo ) ) {
+            performOperation( operation, opOne, opTwo );
+        } else {
+            alert( "Please enter valid numbers" );
+        }
     }
 
-    document.getElementById("addition").addEventListener("click", function() {
-        // perform an addition
-        return alert( opOne + opTwo );
-    });
+    function isInteger ( number ) {
+        if ( number === parseInt( number, 10 ) ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-    document.getElementById("substraction").addEventListener("click", function() {
-        // perform a substraction
-        return alert( opOne - opTwo );
-    });
-
-    document.getElementById("multiplication").addEventListener("click", function() {
-        // perform a multiplication
-        return alert( opOne * opTwo );
-    });
-
-    document.getElementById("division").addEventListener("click", function() {
-        // perform a division
-        return alert( opOne / opTwo );
-    });
+    Array.from( document.querySelectorAll( "button" ) ).forEach( function( $btn ) {
+        $btn.addEventListener( "click", function() {
+            checkNumbers( $btn.id );
+        } );
+    } );
 })();

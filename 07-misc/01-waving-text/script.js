@@ -20,7 +20,7 @@
     }
 
     for ( var i = 0; i < text.length; i++ ) {
-        wave += "<span style=\"font-size: " + rng( 1, 5 ) + "em\">" + text[ i ] + "</span>";
+        wave += "<span style=\"font-size: " + rng( 1, 6 ) + "em\">" + text[ i ] + "</span>";
     }
 
     paragraph.innerHTML = wave;

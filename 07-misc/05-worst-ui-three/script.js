@@ -57,13 +57,19 @@
         } );
 
         if ( roulettes[ index ].roll === false ) {
+            roulettes[ index ].button.innerHTML = "Stop";
             roulettes[ index ].roll = setInterval( function () {
                 rouletteRoll( roulettes[ index ] );
             }, 175 );
         } else {
             clearInterval( roulettes[ index ].roll );
             roulettes[ index ].roll = false;
+            roulettes[ index ].button.innerHTML = "Start";
         }
+    }
+
+    for ( var i = 0; i < roulettes.length; i++ ) {
+        roulettes[ i ].button.innerHTML = "Start";
     }
 
     Array.from( document.querySelectorAll( "button" ) ).forEach( function( $btn ) {

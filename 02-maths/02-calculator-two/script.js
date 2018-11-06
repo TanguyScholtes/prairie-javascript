@@ -29,9 +29,9 @@
         }
     };
 
-    Array.from(document.querySelectorAll("button.operator")).forEach(function($btn) {
-        $btn.addEventListener("click", function() {
-            performOperation($btn.id);
-        });
-    });
+    Array.from( document.querySelectorAll( "button" ) ).forEach( function( $btn ) {
+        $btn.addEventListener( "click", function() {
+            performOperation( $btn.id );
+        } );
+    } );
 })();
