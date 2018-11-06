@@ -11,7 +11,6 @@
 
 (function() {
     // your code here
-    var year = document.getElementById( "year" ).value;
     var months = [
         "Janvier",
         "Février",
@@ -29,12 +28,13 @@
 
     function getFridaysThirteen () {
         var monthsWithFridayThirteen = "";
-        var date = new Date();
+        var year = document.getElementById( "year" ).value;
+        var thirteen = new Date();
 
-        for ( var month = 0; month <= 11; month++ ) {
-            date.setFullYear( year, month, 13 );
+        for ( var month = 0; month < months.length; month++ ) {
+            thirteen.setFullYear( year, month, 13 );
 
-            if ( date.getDay() == 5 ) {
+            if ( thirteen.getDay() == 5 ) {
                 //if the day is friday (0 being sunday, 1 monday, etc..., so 5 is friday)
                 monthsWithFridayThirteen += months[ month ] + ", ";
             }
