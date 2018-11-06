@@ -12,7 +12,7 @@
 (function() {
     // your code here
     function isMultipleOfThree ( number ) {
-        if( number % 3 == 0 ) {
+        if( number % 3 === 0 ) {
             return true;
         } else {
             return false;
@@ -20,7 +20,7 @@
     }
 
     function isMultipleOfFive ( number ) {
-        if( number % 5 == 0 ) {
+        if( number % 5 === 0 ) {
             return true;
         } else {
             return false;
