@@ -24,12 +24,22 @@
         "cerise",
     ];
     // your code here
+    console.log( "Base array :" );
+    console.log( fruits );
+
     function transformArray () {
         var array = fruits;
-        //replaces first element of array with "banane"
-        array.splice( 0, 1, "banane" );
-        //replaces last element of array with "kiwi"
-        array.splice( array.length - 1, 1, "kiwi" );
+        
+        //removes first element
+        array.shift();
+        //removes last element
+        array.pop();
+        //add "banane" in first place (index 0)
+        array.unshift( "banane" );
+        //add "kiwi" in last place
+        array.push( "kiwi" );
+
+        console.log( "Transformed array :" );
         console.log( array );
     }
 
