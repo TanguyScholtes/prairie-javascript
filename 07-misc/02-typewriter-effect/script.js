@@ -13,19 +13,25 @@
     // your code here
     var target = document.getElementById( "target" );
     target.innerHTML = "";
-    var text = "Je suis un texte qui va apparaître dans un effet \"machine à écrire\", un peu comme dans les films noirs. Sauf que... je ne sais pas qui est l'assassin ! Y en a-t-il vraiment un ? Habite-t-il au 21 ? Que de mystères !";
+    var text = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.";
+    var typed = "";
+    var index = 0;
+    var timer = null;
 
     function randomTimer () {
-        return Math.floor( Math.random() * ( 3500 - 1000 ) ) + 1000;
+        return Math.floor( Math.random() * ( 500 - 100 ) ) + 100;
     }
 
-    function timeout ( timer, counter ) {
-        return new Promise( resolve => setTimeout( target.innerHTML += text[ counter ], timer ) );
-    }
+    function addLetter () {
+        target.innerHTML += text[ index ];
+        index++;
+        window.clearInterval( timer );
 
-    ( async function () {
-        for ( var i = 0; i < text.length; i++ ) {
-            await timeout( randomTimer(), i );
+        if ( index < text.length ) {
+            timer = window.setInterval( addLetter, randomTimer() );
         }
-    } ) ();
+    }
+
+    timer = window.setInterval( addLetter, randomTimer() );
+
 })();
