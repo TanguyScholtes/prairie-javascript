@@ -10,7 +10,18 @@
 // You will have time to focus on it later.
 
 (function() {
-
     // your code here
+    var paragraph = document.getElementById( "target" );
+    var text = paragraph.innerHTML;
+    var wave = "";
 
+    function rng ( min, max ) {
+        return Math.floor( Math.random() * ( max - min ) ) + min;
+    }
+
+    for ( var i = 0; i < text.length; i++ ) {
+        wave += "<span style=\"font-size: " + rng( 1, 5 ) + "em\">" + text[ i ] + "</span>";
+    }
+
+    paragraph.innerHTML = wave;
 })();
