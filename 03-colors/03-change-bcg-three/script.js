@@ -17,7 +17,7 @@
     }
 
     function changeBackground ( r, g, b ) {
-        document.documentElement.style.background = "rgb(" + r + "," + g + "," + b + ")";
+        document.documentElement.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
     }
 
     function randomColorGenerator () {
