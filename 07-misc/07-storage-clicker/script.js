@@ -10,7 +10,20 @@
 // You will have time to focus on it later.
 
 (function() {
-
     // your code here
+    var target = document.getElementById( "target" );
 
+    if ( !localStorage.getItem( 'counter' ) ) {
+        localStorage.setItem( 'counter', Number( target.innerHTML ) );
+    }
+    var count = localStorage.getItem( 'counter' );
+    target.innerHTML = count;
+
+    function incrementCounter () {
+        count++;
+        localStorage.setItem( 'counter', count );
+        target.innerHTML = count;
+    }
+
+    document.getElementById( 'increment' ).addEventListener( 'click', incrementCounter, false );
 })();
