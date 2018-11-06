@@ -21,10 +21,10 @@
     var toGuess = rng( 1, 100 );
 
     function ask () {
-        var guess = prompt( "Devinez le nombre entre " + min + " et " + max + ".\n Essais : " + tries );
+        var guess = prompt( "Devinez le nombre entre " + min + " et " + max + ".\nEssais : " + tries );
         if ( guess == toGuess ) {
             tries++;
-            alert( "Félicitations ! Vous avez deviné le nombre caché.\n Nombre : " + toGuess + "\n Essais : " + tries );
+            alert( "Félicitations ! Vous avez deviné le nombre caché.\nNombre : " + toGuess + "\nEssais : " + tries );
         } else if ( guess < toGuess ) {
             tries++;
             alert( "Raté. Le nombre caché est plus grand que ça !" );
