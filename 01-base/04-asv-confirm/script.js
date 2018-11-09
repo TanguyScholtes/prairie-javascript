@@ -10,7 +10,11 @@
 // You will have time to focus on it later.
 
 ( function ask () {
-    if ( !confirm( "Est-ce correct ? Âge : " + prompt( "Quel est votre âge ?" ) + ", Sexe : " + prompt( "Quel est votre sexe ?" ) + ", Ville : " + prompt( "Dans quelle ville vivez-vous ?" ) ) ) {
+    var age = prompt( "Quel est votre âge ?" );
+    var sex = prompt( "Quel est votre sexe ?" );
+    var town = prompt( "Dans quelle ville vivez-vous ?" );
+
+    if ( !confirm( "Est-ce correct ? Âge : " + age + ", Sexe : " + sex + ", Ville : " + town ) || !age || !sex || !town ) {
         ask();
     }
 } ) ();
