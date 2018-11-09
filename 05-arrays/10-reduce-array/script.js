@@ -89,6 +89,8 @@
         },
     ];
     // your code here
+
+    /*
     function addAge ( array ) {
         var ages = array.map( function ( person ) {
             var age = person.age;
@@ -98,6 +100,12 @@
         var reducer = ( accumulator, currentValue ) => accumulator + currentValue;
         var ageSum = ages.reduce( reducer );
         console.log(ageSum);
+    }
+    */
+
+    /* More compact version here*/
+    function addAge ( array ) {
+        console.log( array.reduce( ( accumulator, currentValue ) => accumulator + currentValue.age, 0 ) );
     }
 
     document.getElementById( "run" ).addEventListener( "click", function () {

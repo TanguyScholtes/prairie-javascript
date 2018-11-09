@@ -16,7 +16,7 @@
         var birthMonth = document.getElementById( "dob-month" ).value;
         var birthYear = document.getElementById( "dob-year" ).value;
 
-        return new Date( birthYear + "-" + birthMonth + "-" + birthDay );
+        return new Date( birthYear, birthMonth - 1, birthDay );
     }
 
     function getAge () {
