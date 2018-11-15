@@ -13,15 +13,24 @@
     // your code here
     var paragraph = document.getElementById( "target" );
     var text = paragraph.innerHTML;
-    var wave = "";
+
+    function sizeChange () {
+        var wave = "";
+        for ( var i = 0; i < text.length; i++ ) {
+            wave += "<span style=\"font-size: " + rng( 1, 4 ) + "em\">" + text[ i ] + "</span>";
+        }
+
+        //display result
+        paragraph.innerHTML = wave;
+    }
 
     function rng ( min, max ) {
-        return Math.floor( Math.random() * ( max - min ) ) + min;
+        return ( Math.random() * ( max - min ) ) + min;
     }
 
-    for ( var i = 0; i < text.length; i++ ) {
-        wave += "<span style=\"font-size: " + rng( 1, 6 ) + "em\">" + text[ i ] + "</span>";
-    }
+    setInterval( function () {
+        sizeChange();
+    }, 175 );
 
-    paragraph.innerHTML = wave;
+
 })();

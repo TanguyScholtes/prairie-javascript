@@ -11,10 +11,10 @@
 
 (function() {
     // your code here
-    function cycleButton ( id, min, max ) {
-        var button = document.getElementById( id );
+    var target = document.getElementById( "target" );
+
+    function cycleButton ( button, min, max ) {
         var value = Number( button.innerHTML );
-        var target = document.getElementById( "target" );
 
         if ( value >= max ) {
             value = min;
@@ -26,33 +26,13 @@
         }
         button.innerHTML = value;
 
-        switch ( id ) {
-            case "part-one":
-                var beginning = target.innerHTML.slice( 0, 1 );
-                var ending = target.innerHTML.slice( 4 );
-                target.innerHTML = beginning + button.innerHTML + ending;
-                break;
-            case "part-two":
-                var beginning = target.innerHTML.slice( 0, 4 );
-                var ending = target.innerHTML.slice( 6 );
-                target.innerHTML = beginning + button.innerHTML + ending;
-                break;
-            case "part-three":
-                var beginning = target.innerHTML.slice( 0, 6 );
-                var ending = target.innerHTML.slice( 8 );
-                target.innerHTML = beginning + button.innerHTML + ending;
-                break;
-            default:
-            case "part-four":
-                var beginning = target.innerHTML.slice( 0, 8 );
-                target.innerHTML = beginning + button.innerHTML;
-                break;
-        }
+        target.innerHTML = "+";
+        Array.from( document.querySelectorAll( "button" ) ).forEach( element => target.innerHTML += element.innerHTML );
     }
 
-    Array.from( document.querySelectorAll( "button" ) ).forEach( function( $btn ) {
-        $btn.addEventListener( "mousedown", function () {
-            cycleButton($btn.id, $btn.getAttribute( "data-min" ), $btn.getAttribute( "data-max" ) );
+    Array.from( document.querySelectorAll( "button" ) ).forEach( function( button ) {
+        button.addEventListener( "mousedown", function () {
+            cycleButton( button, button.getAttribute( "data-min" ), button.getAttribute( "data-max" ) );
         }, false );
     } );
 })();

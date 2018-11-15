@@ -11,32 +11,7 @@
 
 (function() {
     // your code here
-    var roulettes = [
-        {
-            button: document.getElementById( 'fix-part-one' ),
-            input: document.getElementById( 'part-one' ),
-            value: document.getElementById( 'part-one' ).value,
-            roll: false
-        },
-        {
-            button: document.getElementById( "fix-part-two" ),
-            input: document.getElementById( 'part-two' ),
-            value: document.getElementById( 'part-two' ).value,
-            roll: false
-        },
-        {
-            button: document.getElementById( "fix-part-three" ),
-            input: document.getElementById( 'part-three' ),
-            value: document.getElementById( 'part-three' ).value,
-            roll: false
-        },
-        {
-            button: document.getElementById( "fix-part-four" ),
-            input: document.getElementById( 'part-four' ),
-            value: document.getElementById( 'part-four' ).value,
-            roll: false
-        },
-    ];
+    var roulettes = [];
 
     function rouletteRoll ( roulette ) {
         if ( roulette.value >= roulette.input.getAttribute( "data-max" ) ) {
@@ -68,13 +43,19 @@
         }
     }
 
-    for ( var i = 0; i < roulettes.length; i++ ) {
-        roulettes[ i ].button.innerHTML = "Start";
-    }
+    Array.from( document.querySelectorAll( "button" ) ).forEach( function( btn ) {
+        var key = btn.id.slice( 4 );
+        btn.innerHTML = "Start";
 
-    Array.from( document.querySelectorAll( "button" ) ).forEach( function( $btn ) {
-        $btn.addEventListener( "click", function () {
-            rouletteSwitch( $btn );
+        roulettes.push( {
+            button: btn,
+            input: document.getElementById( key ),
+            value: document.getElementById( key ).value,
+            roll: false
+        } );
+
+        btn.addEventListener( "click", function () {
+            rouletteSwitch( btn );
         }, false );
     } );
 })();
