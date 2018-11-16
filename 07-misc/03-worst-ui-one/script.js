@@ -15,9 +15,8 @@
 
     function phoneNumber () {
         var value = slider.value;
-        document.getElementById( "target" ).innerHTML = "0" + value;
+        document.getElementById( "target" ).innerHTML = "+" + value;
     }
 
-    slider.addEventListener( "input", phoneNumber, false );
-    slider.addEventListener( "change", phoneNumber, false );
+    slider.addEventListener( "input", phoneNumber );
 })();

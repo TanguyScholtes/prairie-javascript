@@ -19,8 +19,6 @@
         for ( var i = 0; i < text.length; i++ ) {
             wave += "<span style=\"font-size: " + rng( 1, 4 ) + "em\">" + text[ i ] + "</span>";
         }
-
-        //display result
         paragraph.innerHTML = wave;
     }
 

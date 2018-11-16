@@ -12,6 +12,7 @@
 (function() {
     // your code here
     var target = document.getElementById( "target" );
+    var buttons = Array.from( document.querySelectorAll( "button" ) );
 
     function cycleButton ( button, min, max ) {
         var value = Number( button.innerHTML );
@@ -27,12 +28,12 @@
         button.innerHTML = value;
 
         target.innerHTML = "+";
-        Array.from( document.querySelectorAll( "button" ) ).forEach( element => target.innerHTML += element.innerHTML );
+        buttons.forEach( element => target.innerHTML += element.innerHTML );
     }
 
-    Array.from( document.querySelectorAll( "button" ) ).forEach( function( button ) {
+    buttons.forEach( function( button ) {
         button.addEventListener( "mousedown", function () {
             cycleButton( button, button.getAttribute( "data-min" ), button.getAttribute( "data-max" ) );
-        }, false );
+        } );
     } );
 })();

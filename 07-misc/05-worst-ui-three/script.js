@@ -23,39 +23,36 @@
             }
         }
         roulette.input.value = roulette.value;
-        document.getElementById( "target" ).innerHTML = "+" + roulettes[ 0 ].value + roulettes[ 1 ].value + roulettes[ 2 ].value + roulettes[ 3 ].value;
+        document.getElementById( "target" ).innerHTML = "+" + roulettes.reduce( ( accumulator, element ) => accumulator += element.value, "" );
     }
 
-    function rouletteSwitch ( button ) {
-        var index = roulettes.findIndex( function ( roulette ) {
-            return roulette.button === button;
-        } );
-
-        if ( roulettes[ index ].roll === false ) {
-            roulettes[ index ].button.innerHTML = "Stop";
-            roulettes[ index ].roll = setInterval( function () {
-                rouletteRoll( roulettes[ index ] );
+    function rouletteSwitch ( roulette ) {
+        if ( roulette.roll === false ) {
+            roulette.button.innerHTML = "Stop";
+            roulette.roll = setInterval( function () {
+                rouletteRoll( roulette );
             }, 175 );
         } else {
-            clearInterval( roulettes[ index ].roll );
-            roulettes[ index ].roll = false;
-            roulettes[ index ].button.innerHTML = "Start";
+            clearInterval( roulette.roll );
+            roulette.roll = false;
+            roulette.button.innerHTML = "Start";
         }
     }
 
     Array.from( document.querySelectorAll( "button" ) ).forEach( function( btn ) {
-        var key = btn.id.slice( 4 );
         btn.innerHTML = "Start";
-
-        roulettes.push( {
+        var key = btn.id.slice( 4 );
+        let roulette = {
             button: btn,
             input: document.getElementById( key ),
             value: document.getElementById( key ).value,
             roll: false
-        } );
+        };
+
+        roulettes.push( roulette );
 
         btn.addEventListener( "click", function () {
-            rouletteSwitch( btn );
-        }, false );
+            rouletteSwitch( roulette );
+        } );
     } );
 })();

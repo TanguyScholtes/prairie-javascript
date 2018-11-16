@@ -12,15 +12,15 @@
 (function() {
     // your code here
     var input = document.getElementById( "pass-one" );
+    var validator = document.getElementById( "validity" ).innerHTML;
 
     function updateValidity () {
         if ( input.value.length >= 8 && input.value.match( /\d/g ).length >= 2 ) {
-            document.getElementById( "validity" ).innerHTML = "Ok";
+            validator = "Ok";
         } else {
-            document.getElementById( "validity" ).innerHTML = "Not ok";
+            validator = "Not ok";
         }
     }
 
-    input.addEventListener( "input", updateValidity, false );
-    input.addEventListener( "change", updateValidity, false );
+    input.addEventListener( "input", updateValidity );
 })();

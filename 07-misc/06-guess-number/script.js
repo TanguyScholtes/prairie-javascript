@@ -18,18 +18,19 @@
     var tries = 0;
     var min = 1;
     var max = 100;
-    var toGuess = rng( 1, 100 );
+    var toGuess = rng( min, max );
 
     function ask () {
         var guess = Number( prompt( "Devinez le nombre entre " + min + " et " + max + ".\nEssais : " + tries ) );
+        
         if ( guess === toGuess ) {
             tries++;
             alert( "Félicitations ! Vous avez deviné le nombre caché.\nNombre : " + toGuess + "\nEssais : " + tries );
-        } else if ( guess < toGuess && guess > 0 ) {
+        } else if ( guess < toGuess && guess > min - 1 ) {
             tries++;
             alert( "Raté. Le nombre caché est plus grand que ça !" );
             ask();
-        } else if ( guess > toGuess && guess < 100 ) {
+        } else if ( guess > toGuess && guess < max ) {
             tries++;
             alert( "Hé non. Le nombre caché est plus petit." );
             ask();

@@ -14,7 +14,7 @@
     var target = document.getElementById( "target" );
 
     if ( !localStorage.getItem( 'counter' ) ) {
-        localStorage.setItem( 'counter', Number( target.innerHTML ) );
+        localStorage.setItem( 'counter', 0 );
     }
     var count = localStorage.getItem( 'counter' );
     target.innerHTML = count;
@@ -25,5 +25,5 @@
         target.innerHTML = count;
     }
 
-    document.getElementById( 'increment' ).addEventListener( 'click', incrementCounter, false );
+    document.getElementById( 'increment' ).addEventListener( 'click', incrementCounter );
 })();
